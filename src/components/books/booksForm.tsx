@@ -6,18 +6,22 @@ import { AiOutlineCloseCircle} from "react-icons/ai";
 const BooksForm: React.FC = () => {
   return (
     <Row className="booksFormSection  ">
-      <Col xs={12}>
+      <Col xs={9}>
           
         <h1>Create Book   </h1>
-        <AiOutlineCloseCircle/>
+        
       </Col>
 
-      <Col xs={12}>
+      <Col xs={3}>
+      <AiOutlineCloseCircle/>
+      </Col>
+
+      <Col xs={10}>
           <Container className="booksForm ml-3">
           <Form  className="ml-3">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Title of the Book</Form.Label>
-            <Form.Control type="text" placeholder="" />
+            <Form.Control className="border-2 border-secondary" type="text" placeholder="" />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -36,7 +40,7 @@ const BooksForm: React.FC = () => {
             </Form.Select>
           </Form.Group>
 
-          <Button variant="primary" type="submit" className="end-0 mr-0">
+          <Button variant="primary" type="submit" className="end-0 mr-0 px-4 py-1">
             Create
           </Button>
         </Form>
