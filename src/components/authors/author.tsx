@@ -15,13 +15,13 @@ const Author: React.FC<AuthorNmaeProps> = (props) => {
     const {authors, index} = props
 
   return (
-    <Row className="authorsSection">
+    <Row className="author">
         <Col xs={9}>
-               {index+1} . {authors.name}
+            <label className="py-2">{index+1} . {authors.name}</label>               
         </Col>
         <Col xs={3}>
-            <Edit className="mx-3"/>
-            <Trash2/>
+            <Edit className="text-warning edit me-3"/> 
+            <Trash2 className="text-danger delete me-3"/>
         </Col>
     </Row>
 );
