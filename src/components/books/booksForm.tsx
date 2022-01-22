@@ -3,7 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Row, Col, Container, Button } from "react-bootstrap";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-const BooksForm: React.FC = () => {
+type BookFormProps = {
+  onCloseClick : () => void
+}
+
+const BooksForm: React.FC<BookFormProps> = (props) => {
   return (
     <Row className="booksFormSection">
       <Col xs={9}>
@@ -11,7 +15,7 @@ const BooksForm: React.FC = () => {
       </Col>
 
       <Col xs={3} className="">
-        <AiOutlineCloseCircle size={25}  className="icon"/>
+        <AiOutlineCloseCircle size={25}  className="icon" onClick={props.onCloseClick}/>
       </Col>
 
       <Col xs={10}>
