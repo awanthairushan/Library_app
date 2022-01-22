@@ -1,20 +1,29 @@
-import React from 'react';
-import  'bootstrap/dist/css/bootstrap.min.css';
-import { Image,Row,Col ,Container} from 'react-bootstrap';
+import React, { PropsWithChildren } from "react";
+import { Row,Col } from 'react-bootstrap';
+import { Edit,Trash2 } from 'react-feather';
+import { IBook } from "../../types/libraryTypes";
 
-const Author: React.FC = () => {
-  return (
-    <Row className="authorsSection">
-        <Col xs={9}>
-                Author 01 Name
-        </Col>
-        <Col xs={3}>
-            <i   className="trash-2"></i>
-            <i></i>
-            <i data-feather="circle"></i>
-        </Col>
-    </Row>
-);
-} 
+type BookProps = {
+    book:IBook
+    num:number
+}
 
-export default Author;
+const Book:React.FC<BookProps> = (props:PropsWithChildren<BookProps>) => {
+
+    const {book, num} = props
+    return (
+        <li>
+            
+        <Row className="book">
+            <Col xs={8}>
+                <label className="py-2">{num}. {book.name}</label>
+            </Col>
+            <Col xs={4} className="text-end my-1 d-flex justify-content-end align-items-center">
+                <Edit className="text-warning edit me-3"/> 
+                <Trash2 className="text-danger delete me-3"/>
+            </Col>
+        </Row>
+        </li>
+    )
+};
+export default Book;
