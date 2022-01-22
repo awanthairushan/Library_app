@@ -8,10 +8,10 @@ import EmptyLabel from './emptyLabel';
 const AuthorsList: React.FC = () => {
 
     const authors: IAuthor[] = [
-        { name: "Author 1"},
-        { name: "Author 2"},
-        { name: "Author 3"},
-        { name: "Author 4"},
+        { name: "Author 1 name"},
+        { name: "Author 2 name"},
+        { name: "Author 3 name"},
+        { name: "Author 4 name"},
     ]
 
     const renderAuthors = () => {
@@ -29,7 +29,6 @@ const AuthorsList: React.FC = () => {
                             <Author authors={authors} index={index}/>
                         )
                     }
-                    {/* <Author/> */}
                 </li>
             );
         }
