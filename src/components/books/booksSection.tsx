@@ -2,6 +2,7 @@ import React from 'react';
 import  'bootstrap/dist/css/bootstrap.min.css';
 import { Image,Row,Col ,Container} from 'react-bootstrap';
 import BooksList  from '../books/booksList';
+import BooksForm from './booksForm';
 
 const BooksSection: React.FC = () => {
   return (
@@ -13,6 +14,9 @@ const BooksSection: React.FC = () => {
 
         <Col className="" xs={12}>
             <BooksList/>
+        </Col>
+        <Col className="" xs={12}>
+            <BooksForm/>
         </Col>
     </Row>
 );
