@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Row, Col, Container, Button } from "react-bootstrap";
-import { AiOutlineCloseCircle } from "react-icons/ai";
+import { XCircle } from 'react-feather';
 
 const BooksForm: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const BooksForm: React.FC = () => {
       </Col>
 
       <Col xs={3} className="">
-        <AiOutlineCloseCircle size={25}  className="icon"/>
+      <XCircle className="me-3"/>
       </Col>
 
       <Col xs={10}>
