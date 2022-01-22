@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Row, Col, Container, Button } from "react-bootstrap";
-import { AiOutlineCloseCircle } from "react-icons/ai";
+import { XCircle } from "react-feather";
 
 type BookFormProps = {
   onCloseClick : () => void
@@ -9,18 +9,17 @@ type BookFormProps = {
 
 const BooksForm: React.FC<BookFormProps> = (props) => {
   return (
-    <Row className="booksFormSection">
-      <Col xs={9}>
+    <Row className="booksFormSection m-0">
+      <Col xs={8} className="p-0">
         <h1>Create Book </h1>
       </Col>
 
-      <Col xs={3} className="">
-        <AiOutlineCloseCircle size={25}  className="icon" onClick={props.onCloseClick}/>
+      <Col xs={1} className="text-end p-0">
+        <XCircle size={25}  className="icon p-0" onClick={props.onCloseClick}/>
       </Col>
 
-      <Col xs={10}>
-        <Container className="booksForm ml-5 mt-2">
-          <Form className="ml-3">
+      <Col xs={9} className="p-0 booksForm mt-2">
+          <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label className="formLabel">Title of the Book</Form.Label>
               <Form.Control
@@ -57,7 +56,6 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
               Create
             </Button>
           </Form>
-        </Container>
       </Col>
     </Row>
   );
