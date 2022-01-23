@@ -1,7 +1,40 @@
 .booksSection{
+    margin-left: 5%;
+    margin-right: 3%;
     h1{
         font-size: 2.2em;
         font-weight: 500;
         border-bottom:2px solid;
+    }
+
+    .empty-label{
+        font-style: italic;
+        font-weight: 483;
+    }
+    .book{
+        label{
+            font-size: 1.7em;
+        }
+        .edit{
+            font-size: 1.6em;
+            cursor: pointer;
+            vertical-align: bottom;
+            display: none;
+        }
+        .delete{
+            font-size: 1.6em;
+            cursor: pointer;
+            vertical-align: bottom;
+            display: none;
+        }
+        &:hover {
+            background-color: #f5f5f5;
+            .edit{
+                display: inline-block;
+            }
+            .delete{
+                display: inline-block;
+            }
+        }
     }
 }
