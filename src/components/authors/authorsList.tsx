@@ -36,7 +36,7 @@ const AuthorsList: React.FC = () => {
     }
 
   return (
-    <Row className="authorsSection">
+    <Row className="authorList">
         <Col xs={12}>
             <ul className="list-unstyled">
                 {renderAuthors()}
