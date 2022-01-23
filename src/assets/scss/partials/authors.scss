@@ -1,3 +1,7 @@
+*{
+    font-family: raleway;
+    font-weight: 500;
+}
 .authorsSection{
     h1{
         font-size: 2.2em;
@@ -5,6 +9,31 @@
         border-bottom:2px solid;
     }
 }
+
 .author{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    &:hover {
+        background-color: #f5f5f5;
+        .hover_area {
+            display: block;
+            .icon {
+                cursor: pointer;
+            }
+        }
+    }
+}
+.plus_icon {
+    color: #043bb3;
+    height: 24px;
+    stroke-width: 2.5;
+    cursor: pointer;
+}
+.add_author {
+    font-size: 1rem;
+    margin-left: 0.3rem;
+    cursor: pointer;
+}
+
+.hover_area {
+    display: none;
 }

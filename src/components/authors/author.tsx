@@ -19,9 +19,9 @@ const Author: React.FC<AuthorNmaeProps> = (props) => {
         <Col xs={9}>
             <label className="py-2">{index+1} . {authors.name}</label>               
         </Col>
-        <Col xs={3}>
-            <Edit className="text-warning edit me-3"/> 
-            <Trash2 className="text-danger delete me-3"/>
+        <Col xs={3} className='hover_area'>
+            <Edit className="text-warning edit me-3 icon"/> 
+            <Trash2 className="text-danger delete me-3 icon"/>
         </Col>
     </Row>
 );

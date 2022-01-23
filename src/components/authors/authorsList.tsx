@@ -4,6 +4,7 @@ import { Image,Row,Col ,Container} from 'react-bootstrap';
 import Author  from '../authors/author';
 import { IAuthor } from '../../types/libraryTypes';
 import EmptyLabel from './emptyLabel';
+import {Plus} from 'react-feather'
 
 const AuthorsList: React.FC = () => {
 
@@ -39,6 +40,10 @@ const AuthorsList: React.FC = () => {
         <Col xs={12}>
             <ul className="list-unstyled">
                 {renderAuthors()}
+            </ul>
+            <ul className="list-unstyled">
+                <Plus className='plus_icon align-top'/>
+                <label className='add_author'>Add Author</label>
             </ul>
         </Col>
     </Row>
