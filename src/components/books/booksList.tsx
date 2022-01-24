@@ -31,7 +31,7 @@ const BookList:React.FC = () => {
     }
 
     return (
-        <Col sm={12}>
+        <Col sm={12} className="bookList">
             {renderBooks()}
         </Col>
     )

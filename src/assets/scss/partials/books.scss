@@ -1,4 +1,5 @@
 .booksSection{
+    margin: 0 1rem;
     h1{
         font-size: 2.2em;
         font-weight: 500;
@@ -9,9 +10,12 @@
         font-style: italic;
         font-weight: 483;
     }
+    .bookList {
+        margin-bottom: 2rem;
+    }
     .book{
         label{
-            font-size: 1.7em;
+            font-size: 1.5em;
         }
         .edit{
             font-size: 1.6em;
