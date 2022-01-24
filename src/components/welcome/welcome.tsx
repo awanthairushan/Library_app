@@ -19,8 +19,8 @@ const Welcome: React.FC = () => {
 
       <Col xs={12} className="pt-2 text-end pe-5">
          
-          Photo by <a href="https://reactsoftvesel2021jan.atlassian.net/jira/software/projects/CC/boards/25">sadeepa bhashitha </a>
-            on <a href="https://reactsoftvesel2021jan.atlassian.net">Unsplash</a>      
+          Photo by <a href="https://unsplash.com/photos/ajE5goOGzZc">Anna Hunko </a>
+            on <a href="https://unsplash.com/">Unsplash</a>      
       </Col>
 
     </Row>

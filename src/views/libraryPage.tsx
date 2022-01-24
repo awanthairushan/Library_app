@@ -11,11 +11,11 @@ const LibraryPage: React.FC = () => {
         <Welcome/>
 
         <Row>
-          <Col xs={12} md={6} className="">
+          <Col xs={{span:12,order:2}} md={{span:6,order:1}} className="">
             <BooksSection/>
           </Col>
             
-          <Col xs={12} md={6} className="">
+          <Col xs={{span:12,order:1}} md={{span:6,order:2}} className="">
             <AuthorsSection/>
           </Col>
         </Row>

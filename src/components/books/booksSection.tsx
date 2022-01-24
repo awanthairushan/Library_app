@@ -16,13 +16,13 @@ const BooksSection: React.FC = () => {
     }
 
   return (
-    <Row className="booksSection  ">
-        <Col xs={12}>
+    <Row className="booksSection">
+        <Col sm={12}>
             <h1   className="mt-2 pb-2">Books</h1>
         </Col>
         
 
-        <Col className="" xs={12}>
+        <Col className="" sm={12}>
             <BooksList/>
         </Col>
         <Col>
