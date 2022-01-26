@@ -2,12 +2,16 @@ import React from "react";
 import {Row,Col} from "react-bootstrap";
 import { Plus } from "react-feather";
 
-const AddAuthor = () => {
+type AddAuthorProps = {
+    onAddClick : () => void
+}
+
+const AddAuthor:React.FC<AddAuthorProps> = (props) => {
   return (
-      <Col sm={12} className="mb-5">
-        <Plus className="test-primary plus" /> &nbsp;
-        Add Author
-      </Col>
+    <ul className="list-unstyled mb-5" onClick={props.onAddClick}>
+        <Plus className='plus_icon align-top'/>
+        <label className='add_author'>Add Author</label>
+    </ul>
   )
 }
 export default  AddAuthor;

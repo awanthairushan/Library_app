@@ -43,10 +43,6 @@ const AuthorsList: React.FC = () => {
             <ul className="list-unstyled">
                 {renderAuthors()}
             </ul>
-            <ul className="list-unstyled">
-                <Plus className='plus_icon align-top'/>
-                <label className='add_author'>Add Author</label>
-            </ul>
         </Col>
     </Row>
 );
