@@ -18,16 +18,18 @@ const AuthorsList: React.FC = () => {
     const renderAuthors = () => {
         if (authors.length === 0) {
             return (
-                <Col xs={9}>
-                    <EmptyLabel/>
-                </Col>
+                <Row>
+                    <Col xs={9}>
+                        <EmptyLabel/>
+                    </Col>
+                </Row>
             );
         } else {
             return (
                 <li className="mt-2">
                     {
                         authors.map((authors:IAuthor , index:number) =>
-                            <Author authors={authors} index={index}/>
+                            <Author authors={authors} index={index} key={index}/>
                         )
                     }
                 </li>

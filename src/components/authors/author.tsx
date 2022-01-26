@@ -4,15 +4,29 @@ import { Image,Row,Col ,Container} from 'react-bootstrap';
 import { Trash2, Edit } from "react-feather";
 import { propTypes } from 'react-bootstrap/esm/Image';
 import { IAuthor } from '../../types/libraryTypes';
+import ConfirmationModel from './confirmation'
+import {render} from "react-dom";
 
-type AuthorNmaeProps = {
+type AuthorNameProps = {
     authors: IAuthor
     index: number
 }
 
 
-const Author: React.FC<AuthorNmaeProps> = (props) => {
+const Author: React.FC<AuthorNameProps> = (props) => {
     const {authors, index} = props
+
+    const confirmDelete = () => {
+        confirmDeleteA();
+    }
+
+    const confirmDeleteA = () => {
+      return (
+          <Col>
+              <ConfirmationModel/>
+          </Col>
+      );
+    }
 
   return (
     <Row className="author">
@@ -20,8 +34,8 @@ const Author: React.FC<AuthorNmaeProps> = (props) => {
             <label className="py-2">{index+1} . {authors.name}</label>               
         </Col>
         <Col xs={3} className='hover_area d-flex flex-row-reverse align-items-center'>
-            <Trash2 className="text-danger delete me-3 icon align-middle"/>
-            <Edit className="text-warning edit me-3 icon align-bottom"/> 
+            <Trash2 onClick={confirmDelete} className="text-danger delete me-3 icon align-middle"/>
+            <Edit className="text-warning edit me-3 icon align-bottom" />
         </Col>
     </Row>
 );
