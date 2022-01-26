@@ -10,7 +10,7 @@ type BookFormProps = {
 const BooksForm: React.FC<BookFormProps> = (props) => {
   return (
     <Row className="booksFormSection m-0">
-      <Col xs={8} className="p-0">
+      <Col xs={10} md={8} className="p-0">
         <h1>Create Book </h1>
       </Col>
 
@@ -18,7 +18,7 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
         <XCircle size={25}  className="icon p-0" onClick={props.onCloseClick}/>
       </Col>
 
-      <Col xs={9} className="p-0 booksForm mt-2">
+      <Col xs={11} md={9} className="p-0 booksForm mt-2">
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label className="formLabel">Title of the Book</Form.Label>

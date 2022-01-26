@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import  'bootstrap/dist/css/bootstrap.min.css';
 import { Image,Row,Col ,Container} from 'react-bootstrap';
 import AuthorsList from '../authors/authorsList';
@@ -6,6 +6,15 @@ import AuthorForm from '../authors/authorForm';
 import AddAuthor from '../authors/addAuthor';
 
 const AuthorsSection: React.FC = () => {
+    const [isFormVisible,setIsFormVisible] = useState(false);
+
+    const handleOnAddAuthorClick = () => {
+        setIsFormVisible(true)
+    }
+    const handleOnCloseFormClick = () => {
+        setIsFormVisible(false)
+    }
+
   return (
     <Row className="authorsSection" >
         <Col sm={12} >
@@ -17,10 +26,10 @@ const AuthorsSection: React.FC = () => {
             <AuthorsList/>
         </Col>
         <Col>
-            <AddAuthor></AddAuthor>
+            <AddAuthor onAddClick = {handleOnAddAuthorClick}/>
         </Col>
         <Col className="" xs={12}>
-            <AuthorForm/>
+            {isFormVisible && <AuthorForm onCloseClick = {handleOnCloseFormClick}/>}
         </Col>
     </Row>
 );
