@@ -12,7 +12,6 @@ const AuthorsList: React.FC = () => {
         { name: "Author 1 name"},
         { name: "Author 2 name"},
         { name: "Author 3 name"},
-        { name: "Author 4 name"},
     ]
 
     const renderAuthors = () => {
