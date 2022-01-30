@@ -4,16 +4,15 @@
     
     .formInput{
         height:2.1rem;
+        border: 2px solid #959595;
+        height: 42px;
     }
     .formButton{
         float:right;
-        padding-left:2rem;
-        padding-right:2rem;
         margin-bottom: 1rem;
         border-radius:0.5rem;
         background:#01589d !important;
-        padding-top: 0.2rem;
-        padding-bottom: 0.2rem;
+        padding: 0.2rem 1.8rem 0.2rem 1.8rem;
     }
     .formLabel{
         font-size: 0.8rem;
@@ -30,12 +29,21 @@
         border-bottom:2px solid;
         width: max-content;
         color:#1c3b38;
-
+        cursor: default;
     }
 
     margin-left: 1rem;
 
     .icon{
         margin-right: 15rem;
+        margin-left: -4%;
+        cursor: pointer;
     }
+}
+.form-control{
+    border: 2px solid #959595;
+    height: 42px;
+}
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    border: 2px solid red;
 }

@@ -9,7 +9,7 @@ type AddBookProps = {
 const AddBook:React.FC<AddBookProps> = (props) => {
     return(
         <Col sm={12} className="mb-5 add-book" onClick={props.onAddClick}>
-            <Plus className="text-primary plus_icon align-top"/>
+            <Plus className="plus_icon align-top"/>
             <label className='add_book'>Add Book</label>
         </Col>
     )
