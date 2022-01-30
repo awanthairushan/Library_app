@@ -3,12 +3,11 @@ import { Row,Col } from 'react-bootstrap';
 import Book from "./book";
 import { IBook } from "../../types/libraryTypes";
 
-const BookList:React.FC = () => {
-    const books:IBook[] = [
-        {name:'Book 1',isbn:467465,author:'Author 1'},
-        {name:'Book 2',isbn:467465,author:'Author 1'},
-        {name:'Book 3',isbn:467465,author:'Author 1'},
-    ]
+type BookListProps = {
+    books: IBook[]
+}
+const BookList:React.FC<BookListProps> = (props) => {
+    const {books} = props
 
     const renderBooks = () => {
         if(books.length===0){

@@ -1,9 +1,14 @@
 export interface IAuthor{
-    name:String
+    name:string
 }
 
 export interface IBook{
-    name:String,
+    name:string,
     isbn:number,
-    author:String,
+    author:string,
+}
+
+export interface AuthorsInDropDown {
+    value: string,
+    label: string,
 }
