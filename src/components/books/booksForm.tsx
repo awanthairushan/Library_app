@@ -1,7 +1,8 @@
-import React,{useState} from "react";
+import React,{useState,Component} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Row, Col, Container, Button } from "react-bootstrap";
 import { XCircle } from "react-feather";
+import Select from 'react-select'
 
 type BookFormProps = {
   onCloseClick : () => void
@@ -20,6 +21,11 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
       setIsbn(name)
   }
 
+  const options = [
+    { value: 'Author 1', label: 'Author 1' },
+    { value: 'Author 2', label: 'Author 2' },
+    { value: 'Author 3', label: 'Author 3' }
+  ]
 
     const handleOnSubmit = (event:any) => {
         const form = event.currentTarget;
@@ -77,16 +83,9 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label className="formLabel">Author</Form.Label>
 
-              <Form.Select
-                aria-label="Default select example"
-                className="border-2 formInput"
-              >
-                <option value="1">Author 1</option>
-                <option value="2">Author 2</option>
-                <option value="3">Author 3</option>
-              </Form.Select>
+              <Select className="border-2 formInput"
+                    options={options} />
             </Form.Group>
-
             <Button className="formButton" variant="primary" type="submit">
               Create
             </Button>
