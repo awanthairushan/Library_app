@@ -3,29 +3,38 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Row, Col, Container, Button } from "react-bootstrap";
 import { XCircle } from "react-feather";
 import Select from 'react-select'
+import { IBook, AuthorsInDropDown, IAuthor } from "../../types/libraryTypes";
 
 type BookFormProps = {
   onCloseClick : () => void
+  addBook : (book:IBook) => void
+  options : IAuthor[]
 }
 
 const BooksForm: React.FC<BookFormProps> = (props) => {
 
-  const [validated, setValidated] = useState(false);
+  const {options} = props
+
+    const [validated, setValidated] = useState(false);
     const [bookName, setBookName] = useState<string>("");
     const [isbn, setIsbn] = useState<string>("");
+    const [bookAuthor, setBookAuthor] = useState<AuthorsInDropDown | null>(null)
 
     const handleOnBookNameChanged = (name:string) => {
         setBookName(name)
     }
     const handleOnisbnChanged = (name:string) => {
       setIsbn(name)
-  }
+    }
+    const handleOnBookAuthorChanged = (name:AuthorsInDropDown|null) => {
+      setBookAuthor(name)
+    }
 
-  const options = [
-    { value: 'Author 1', label: 'Author 1' },
-    { value: 'Author 2', label: 'Author 2' },
-    { value: 'Author 3', label: 'Author 3' }
-  ]
+  const optionlist:AuthorsInDropDown[] = options.map((option:IAuthor) => {
+    return(
+      { value: option.name, label: option.name }
+    )
+  });
 
     const handleOnSubmit = (event:any) => {
         const form = event.currentTarget;
@@ -34,12 +43,19 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
             event.stopPropagation();
         }
 
+        event.preventDefault();
         setValidated(true);
         event.preventDefault();
-        if(!bookName || !isbn){
+        if(!bookName || !isbn || !bookAuthor){
             return;
         }
-        
+        else{
+          const newBook: IBook = {name:bookName, isbn:12321, author:bookAuthor.value};
+          props.addBook(newBook)
+          setBookName("")
+          setIsbn("")
+          setBookAuthor(null)
+        }
         setValidated(false)
     }
   return (
@@ -84,7 +100,11 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
               <Form.Label className="formLabel">Author</Form.Label>
 
               <Select className="border-2 formInput"
-                    options={options} />
+                    options={optionlist} 
+                    value={bookAuthor}
+                    onChange={(selected: AuthorsInDropDown | null) => {
+                      handleOnBookAuthorChanged(selected)
+                  }}/>
             </Form.Group>
             <Button className="formButton" variant="primary" type="submit">
               Create

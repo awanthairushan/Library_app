@@ -4,15 +4,13 @@ import { Image,Row,Col ,Container} from 'react-bootstrap';
 import Author  from '../authors/author';
 import { IAuthor } from '../../types/libraryTypes';
 import EmptyLabel from './emptyLabel';
-import {Plus} from 'react-feather'
 
-const AuthorsList: React.FC = () => {
+type AuthorsListProps = {
+    authors:IAuthor[]
+}
+const AuthorsList: React.FC<AuthorsListProps> = (props) => {
 
-    const authors: IAuthor[] = [
-        { name: "Author 1 name"},
-        { name: "Author 2 name"},
-        { name: "Author 3 name"},
-    ]
+    const {authors} = props
 
     const renderAuthors = () => {
         if (authors.length === 0) {

@@ -1,16 +1,18 @@
 import React,{useState} from "react";
-import AuthorList from "../authors/authorsList";
 import {Row, Col , Form, Button} from "react-bootstrap";
 import { XCircle } from "react-feather";
+import { IAuthor } from "../../types/libraryTypes";
 
 type AddAuthorProps = {
     onCloseClick : () => void
+    addAuthor : (author:IAuthor) => void
 }
 
 const AuthorForm: React.FC<AddAuthorProps> = (props) => {
 
     const [validated, setValidated] = useState(false);
     const [authorName, setAuthorName] = useState<string>("");
+
     const handleOnAuthorNameChanged = (name:string) => {
         setAuthorName(name)
     }
@@ -21,13 +23,16 @@ const AuthorForm: React.FC<AddAuthorProps> = (props) => {
             event.preventDefault();
             event.stopPropagation();
         }
-
-        setValidated(true);
         event.preventDefault();
+        setValidated(true);
         if(!authorName){
             return;
         }
-        
+        else{
+            const newAuthor: IAuthor = {name: authorName};
+            props.addAuthor(newAuthor)
+            setAuthorName("")
+        }
         setValidated(false)
     }
     return (
@@ -46,7 +51,10 @@ const AuthorForm: React.FC<AddAuthorProps> = (props) => {
                             className="border-2 formInput"
                             type="text"
                             placeholder=""
+                            value={authorName}
                             required
+                            onChange={(ev: React.ChangeEvent<HTMLInputElement>,) =>
+                                handleOnAuthorNameChanged(ev.target.value)}
                             />
 
                     </Form.Group>

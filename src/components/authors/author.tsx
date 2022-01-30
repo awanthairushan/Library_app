@@ -3,7 +3,6 @@ import  'bootstrap/dist/css/bootstrap.min.css';
 import { Row,Col} from 'react-bootstrap';
 import { Trash2, Edit } from "react-feather";
 import { IAuthor } from '../../types/libraryTypes';
-import { confirm } from "react-confirm-box";
 
 type AuthorNameProps = {
     authors: IAuthor
@@ -14,13 +13,14 @@ type AuthorNameProps = {
 const Author: React.FC<AuthorNameProps> = (props) => {
     const {authors, index} = props
 
-    const onClickTrash = async () => {
-        const result = await confirm("Are you sure Delete this?");
-        if (result) {
-          console.log("You click yes!");
-          return;
+    const onClickTrash =  () => {
+        const userConfirmation = window.confirm("Delete this auther?");
+        if (userConfirmation === true) {
+            console.log("hit")
+            /*const allBooks: IBook[] = books.slice();
+            allBooks.splice(index,1,book);
+            setBooks(allBooks);*/
         }
-        console.log("You click No!");
       };
 
   return (

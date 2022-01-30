@@ -2,7 +2,6 @@ import React, { PropsWithChildren } from "react";
 import { Row,Col } from 'react-bootstrap';
 import { Edit,Trash2 } from 'react-feather';
 import { IBook } from "../../types/libraryTypes";
-import { confirm } from "react-confirm-box";
 
 type BookProps = {
     book:IBook
@@ -13,15 +12,15 @@ const Book:React.FC<BookProps> = (props:PropsWithChildren<BookProps>) => {
 
     const {book, num} = props
 
-    const onClickTrash = async () => {
-        const result = await confirm("Are you sure Delete this?");
-        if (result) {
-          console.log("You click yes!");
-          return;
+    const onClickTrash =  () => {
+        const userConfirmation = window.confirm("Delete this book?");
+        if (userConfirmation === true) {
+            console.log("hit")
+            /*const allBooks: IBook[] = books.slice();
+            allBooks.splice(index,1,book);
+            setBooks(allBooks);*/
         }
-        console.log("You click No!");
       };
-
     return (
         <li>
             
