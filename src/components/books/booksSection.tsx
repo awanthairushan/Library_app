@@ -5,11 +5,14 @@ import BooksList  from '../books/booksList';
 import BooksForm from './booksForm';
 import AddBook from './addBook';
 import { IBook,IAuthor } from "../../types/libraryTypes";
+import { useToasts } from 'react-toast-notifications';
 
 type BooksSectionProps = {
     authors:IAuthor[]
 }
 const BooksSection: React.FC<BooksSectionProps> = (props) => {
+
+    const { addToast } = useToasts()
 
     const Books:IBook[] = [
         {name:'Book 1',isbn:467465,author:'Author 1'},
@@ -27,34 +30,42 @@ const BooksSection: React.FC<BooksSectionProps> = (props) => {
         setIsFormVisible(false)
     }
 
-    const handleOnAddBook = (book:IBook) => {
-        const userConfirmation = window.confirm("Add this Book?");
+    const handleOnDeleteBook = (deleteIndex:number) => {
+        const userConfirmation = window.confirm("Delete this Book?");
         const index=books.length
         if (userConfirmation === true) {
             const allBooks: IBook[] = books.slice();
-            allBooks.splice(index,1,book);
+            allBooks.splice(deleteIndex,1);
             setBooks(allBooks);
+            addToast("Book Deleted", { appearance: 'success', autoDismiss: true });
         }
+    }
+
+    const handleOnAddBook = (book:IBook) => {
+        const index=books.length
+        const allBooks: IBook[] = books.slice();
+        allBooks.splice(index,1,book);
+        setBooks(allBooks);
     }
   return (
     <Row className="booksSection">
-        
-        <Col sm={12}>
-            <h1   className="mt-2 pb-2">Books</h1>
-        </Col>
-        
+            <Col sm={12}>
+                <h1 className="mt-2 pb-2">Books</h1>
+            </Col>
+            
 
-        <Col className="" sm={12}>
-            <BooksList books = {books}/>
-        </Col>
-        <Col>
-            <AddBook onAddClick = {handleOnAddBookClick}/>
-        </Col>
-        <Col className="" xs={12}>
-            {isFormVisible && <BooksForm onCloseClick = {handleOnCloseFormClick}
-                                         addBook = {handleOnAddBook}
-                                         options = {props.authors}/>}
-        </Col>
+            <Col className="" sm={12}>
+                <BooksList books = {books}
+                           deleteBook = {handleOnDeleteBook}/>
+            </Col>
+            <Col>
+                <AddBook onAddClick = {handleOnAddBookClick}/>
+            </Col>
+            <Col className="" xs={12}>
+                {isFormVisible && <BooksForm onCloseClick = {handleOnCloseFormClick}
+                                            addBook = {handleOnAddBook}
+                                            options = {props.authors}/>}
+            </Col>
     </Row>
 );
 } 

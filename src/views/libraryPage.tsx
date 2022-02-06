@@ -5,8 +5,11 @@ import Welcome from  '../components/welcome/welcome';
 import AuthorsSection from '../components/authors/authorsSection'
 import BooksSection from '../components/books/booksSection';
 import { IAuthor } from '../types/libraryTypes';
+import { useToasts } from 'react-toast-notifications';
 
 const LibraryPage: React.FC = () => {
+
+  const { addToast } = useToasts()
 
   const Authors: IAuthor[] = [
     { name: "Author 1 name"},
@@ -14,6 +17,17 @@ const LibraryPage: React.FC = () => {
     { name: "Author 3 name"},
 ]
 const[authors,setAuthors]= useState(Authors);
+
+const handleOnDeleteAuthor = (deleteIndex:number) => {
+  const userConfirmation = window.confirm("Delete this Author?");
+  const index=authors.length
+  if (userConfirmation === true) {
+      const allAuthors: IAuthor[] = authors.slice();
+      allAuthors.splice(deleteIndex,1);
+      setAuthors(allAuthors);
+      addToast("Author Deleted", { appearance: 'success', autoDismiss: true });
+  }
+}
 
 const handleOnAddAuthor = (name:IAuthor) => {
   const userConfirmation = window.confirm("Add this Author?");
@@ -36,7 +50,8 @@ const handleOnAddAuthor = (name:IAuthor) => {
             
           <Col xs={{span:12,order:1}} md={{span:6,order:2}} className="">
             <AuthorsSection authors={authors}
-                             addAuthor={handleOnAddAuthor}/>
+                             addAuthor={handleOnAddAuthor}
+                             deleteAuthor = {handleOnDeleteAuthor}/>
           </Col>
         </Row>
         

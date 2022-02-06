@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import {Row, Col , Form, Button} from "react-bootstrap";
 import { XCircle } from "react-feather";
 import { IAuthor } from "../../types/libraryTypes";
+import { useToasts } from 'react-toast-notifications';
 
 type AddAuthorProps = {
     onCloseClick : () => void
@@ -10,6 +11,7 @@ type AddAuthorProps = {
 
 const AuthorForm: React.FC<AddAuthorProps> = (props) => {
 
+    const { addToast } = useToasts()
     const [validated, setValidated] = useState(false);
     const [authorName, setAuthorName] = useState<string>("");
 
@@ -31,6 +33,7 @@ const AuthorForm: React.FC<AddAuthorProps> = (props) => {
         else{
             const newAuthor: IAuthor = {name: authorName};
             props.addAuthor(newAuthor)
+            addToast("New Author added", { appearance: 'success', autoDismiss: true });
             setAuthorName("")
         }
         setValidated(false)
