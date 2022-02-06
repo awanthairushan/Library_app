@@ -7,6 +7,7 @@ import EmptyLabel from './emptyLabel';
 
 type AuthorsListProps = {
     authors:IAuthor[]
+    deleteAuthor : (deleteIndex:number) => void
 }
 const AuthorsList: React.FC<AuthorsListProps> = (props) => {
 
@@ -26,7 +27,8 @@ const AuthorsList: React.FC<AuthorsListProps> = (props) => {
                 <li className="mt-2">
                     {
                         authors.map((authors:IAuthor , index:number) =>
-                            <Author authors={authors} index={index} key={index}/>
+                            <Author authors={authors} index={index} key={index}
+                                    deleteAuthor={props.deleteAuthor}/>
                         )
                     }
                 </li>

@@ -5,6 +5,7 @@ import { IBook } from "../../types/libraryTypes";
 
 type BookListProps = {
     books: IBook[]
+    deleteBook : (deleteIndex:number) => void
 }
 const BookList:React.FC<BookListProps> = (props) => {
     const {books} = props
@@ -22,7 +23,8 @@ const BookList:React.FC<BookListProps> = (props) => {
                 <ol className="list-unstyled mt-3">
                     {
                         books.map((book:IBook,index:number) =>
-                        <Book num={index + 1} book={book} key={index}/>)
+                        <Book num={index + 1} book={book} key={index}
+                                deleteBook={props.deleteBook}/>)
                     }
             </ol>
             );

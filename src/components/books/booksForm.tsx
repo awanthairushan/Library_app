@@ -4,6 +4,8 @@ import { Form, Row, Col, Container, Button } from "react-bootstrap";
 import { XCircle } from "react-feather";
 import Select from 'react-select'
 import { IBook, AuthorsInDropDown, IAuthor } from "../../types/libraryTypes";
+import NumberFormat from 'react-number-format';
+import { useToasts } from 'react-toast-notifications';
 
 type BookFormProps = {
   onCloseClick : () => void
@@ -13,6 +15,7 @@ type BookFormProps = {
 
 const BooksForm: React.FC<BookFormProps> = (props) => {
 
+  const { addToast } = useToasts()
   const {options} = props
 
     const [validated, setValidated] = useState(false);
@@ -52,6 +55,7 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
         else{
           const newBook: IBook = {name:bookName, isbn:12321, author:bookAuthor.value};
           props.addBook(newBook)
+          addToast("New Book added", { appearance: 'success', autoDismiss: true });
           setBookName("")
           setIsbn("")
           setBookAuthor(null)
@@ -85,15 +89,10 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label className="formLabel">ISBN</Form.Label>
-              <Form.Control
-                type="text"
-                className="border-2 formInput"
-                placeholder=""
-                required
-                value={isbn}
-                onChange={(ev: React.ChangeEvent<HTMLInputElement>,) =>
-                    handleOnisbnChanged(ev.target.value)}
-              />
+              <NumberFormat required className="form-control" placeholder="" prefix={'$ '} thousandSeparator={true} value={isbn}
+                                onValueChange={(values: any) => {
+                                  handleOnisbnChanged(values.value)
+                                }} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
