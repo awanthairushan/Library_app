@@ -1,6 +1,6 @@
 .welcome{
     h1{
-        font-size:3.2rem;
+        font-size:2.8rem;
         font-weight:780;
     }
 
@@ -8,5 +8,32 @@
         width:100%;
         height:auto;
         
+   }
+   @media(max-width: 992px){
+    h1{
+        font-size:2.6rem;
+        font-weight:700;
+    }
+    .photocreadit{
+        font-size: 15px;
+    }
+   }
+   @media(max-width: 768px){
+    h1{
+        font-size:2.2rem;
+        font-weight:600;
+    }
+    .photocreadit{
+        font-size: 13px;
+    }
+   }
+   @media(max-width: 576px){
+    h1{
+        font-size:2.0rem;
+        font-weight:500;
+    }
+    .photocreadit{
+        font-size: 12px;
+    }
    }
 }

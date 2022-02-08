@@ -15,7 +15,7 @@
     }
     .book{
         label{
-            font-size: 1.5em;
+            font-size: 1.5rem;
         }
         .edit{
             font-size: 1.6em;
@@ -50,4 +50,33 @@
     font-size: 1.1rem;
     margin-left: 0.3rem;
     cursor: pointer;
+}
+@media(max-width:768px){
+    .booksSection{
+        h1{
+            font-size: 1.8em;
+        }
+        .book{
+            label{
+                font-size: 1.3rem;
+            }}
+    }
+   
+    .add_book {
+        font-size: 1rem;
+    }
+}
+@media(max-width:576px){
+    .booksSection{
+        h1{
+            font-size: 1.5em;
+        }
+        .book{
+            label{
+                font-size: 1.2rem;
+            }}
+    }
+    .add_book {
+        font-size: 0.9rem;
+    }
 }
