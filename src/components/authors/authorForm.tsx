@@ -46,9 +46,9 @@ const AuthorForm: React.FC<AddAuthorProps> = (props) => {
             <Col xs={1} className="text-end p-0">
                 <XCircle size={23} className="icon p-0" onClick={props.onCloseClick}/>
             </Col>
-            <Col xs={12} sm={9} className="p-0 authorForm ">
-                <Form noValidate validated={validated} onSubmit={handleOnSubmit}>
-                    <Form.Group className="mb-3" controlId="formAuthor">
+            <Col xs={12} sm={9} className="p-0 authorForm">
+                <Form noValidate validated={validated} onSubmit={handleOnSubmit} className="ms-sm-4">
+                    <Form.Group className="mb-3 formAuthor" controlId="formAuthor">
                         <Form.Label className="formLabel">Author</Form.Label>
                         <Form.Control
                             className="border-2 formInput"
