@@ -1,7 +1,4 @@
-.authorForm {
-    max-width: 65%;
-    margin-left:5%;
-    
+.authorForm {    
   .formButton{
     float:right;
     margin-bottom: 1rem;
@@ -38,8 +35,21 @@
 }
 .form-control{
   border: 2px solid #959595;
-  height: 42px;
 }
 .form-control.is-invalid, .was-validated .form-control:invalid {
   border: 2px solid red;
+}
+@media(max-width:768px){
+  .authorFormSection{
+    h1{
+      font-size: 1.3em;
+    }
+  }
+}
+@media(max-width:576px){
+  .authorFormSection{
+    h1{
+      font-size: 1.2em;
+    }
+  }
 }

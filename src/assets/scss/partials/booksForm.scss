@@ -1,11 +1,7 @@
 .booksForm{
-    max-width: 65%;
-    margin-left:5%;
-    
     .formInput{
-        height:2.1rem;
         border: 2px solid #959595;
-        height: 42px;
+        border-radius: 3px !important;
     }
     .formButton{
         float:right;
@@ -36,15 +32,26 @@
     margin-left: 1rem;
 
     .icon{
-        margin-right: 15rem;
-        margin-left: -4%;
+        float: right;
         cursor: pointer;
-    }
+      }
 }
 .form-control{
     border: 2px solid #959595;
-    height: 42px;
 }
 .form-control.is-invalid, .was-validated .form-control:invalid {
     border: 2px solid red;
+    border-radius: 3px;
+}
+.selectinvalid{
+    border: 2px solid red;
+    border-radius: 3px;
+}
+.selectinvalid1{
+    border: 2px solid #198754;
+    border-radius: 3px;
+}
+.css-1s2u09g-control{
+    border-style: none !important;
+    border-radius: 3px;
 }
