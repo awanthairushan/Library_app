@@ -1,23 +1,33 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import {Row, Col , Form, Button} from "react-bootstrap";
 import { XCircle } from "react-feather";
 import { IAuthor } from "../../types/libraryTypes";
-import { useToasts } from 'react-toast-notifications';
 
 type AddAuthorProps = {
     onCloseClick : () => void
     addAuthor : (author:IAuthor) => void
+    sendUpdateAuthor : (author:IAuthor) => void
+    updateAuthorValues:IAuthor|null
+    updateAuthorIndex:number|null
 }
 
 const AuthorForm: React.FC<AddAuthorProps> = (props) => {
 
-    const { addToast } = useToasts()
     const [validated, setValidated] = useState(false);
     const [authorName, setAuthorName] = useState<string>("");
+    const [authorUpdateIndex, setAuthorUpdateIndex] = useState<number|null>(null)
 
     const handleOnAuthorNameChanged = (name:string) => {
         setAuthorName(name)
     }
+
+    useEffect(() => {
+        if (!props.updateAuthorValues) {
+            return;
+        }
+        setAuthorName(props.updateAuthorValues.name);
+        setAuthorUpdateIndex(props.updateAuthorIndex);
+    }, [props.updateAuthorValues])
 
     const handleOnSubmit = (event:any) => {
         const form = event.currentTarget;
@@ -30,10 +40,14 @@ const AuthorForm: React.FC<AddAuthorProps> = (props) => {
         if(!authorName){
             return;
         }
+        else if(authorUpdateIndex !== null){
+            const newAuthor: IAuthor = {name: authorName}
+            props.sendUpdateAuthor(newAuthor)
+            setAuthorName("")
+        }
         else{
             const newAuthor: IAuthor = {name: authorName};
             props.addAuthor(newAuthor)
-            addToast("New Author added", { appearance: 'success', autoDismiss: true });
             setAuthorName("")
         }
         setValidated(false)
@@ -62,7 +76,7 @@ const AuthorForm: React.FC<AddAuthorProps> = (props) => {
 
                     </Form.Group>
                     <Button className="formButton" variant="primary" type="submit">
-                        Create
+                        {!authorUpdateIndex?"Create":"Update"}
                     </Button>
 
                 </Form>

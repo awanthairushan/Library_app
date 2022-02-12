@@ -7,6 +7,7 @@ type BookProps = {
     book:IBook
     num:number
     deleteBook : (deleteIndex:number) => void
+    updateBook : (updateIndex:number) => void
 }
 
 const Book:React.FC<BookProps> = (props:PropsWithChildren<BookProps>) => {
@@ -21,7 +22,7 @@ const Book:React.FC<BookProps> = (props:PropsWithChildren<BookProps>) => {
                 <label className="py-2">{num}. {book.name}</label>
             </Col>
             <Col xs={4} className="text-end my-1 d-flex justify-content-end align-items-center">
-                <Edit className="text-warning edit me-3"/> 
+                <Edit className="text-warning edit me-3" onClick={()=>props.updateBook(num-1)}/> 
                 <Trash2 className="text-danger delete me-3" onClick={()=>props.deleteBook(num-1)}/>
             </Col>
         </Row>

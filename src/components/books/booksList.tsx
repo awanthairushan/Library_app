@@ -6,6 +6,7 @@ import { IBook } from "../../types/libraryTypes";
 type BookListProps = {
     books: IBook[]
     deleteBook : (deleteIndex:number) => void
+    updateBook : (updateIndex:number) => void
 }
 const BookList:React.FC<BookListProps> = (props) => {
     const {books} = props
@@ -24,7 +25,8 @@ const BookList:React.FC<BookListProps> = (props) => {
                     {
                         books.map((book:IBook,index:number) =>
                         <Book num={index + 1} book={book} key={index}
-                                deleteBook={props.deleteBook}/>)
+                                deleteBook={props.deleteBook}
+                                updateBook={props.updateBook}/>)
                     }
             </ol>
             );

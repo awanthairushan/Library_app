@@ -1,27 +1,29 @@
-import React,{useState,Component} from "react";
+import React,{useState,useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Row, Col, Container, Button } from "react-bootstrap";
 import { XCircle } from "react-feather";
 import Select from 'react-select'
 import { IBook, AuthorsInDropDown, IAuthor } from "../../types/libraryTypes";
 import NumberFormat from 'react-number-format';
-import { useToasts } from 'react-toast-notifications';
 
 type BookFormProps = {
   onCloseClick : () => void
   addBook : (book:IBook) => void
   options : IAuthor[]
+  sendUpdateBook : (author:IBook) => void
+    updateBookValues:IBook|null
+    updateBookIndex:number|null
 }
 
 const BooksForm: React.FC<BookFormProps> = (props) => {
 
-  const { addToast } = useToasts()
   const {options} = props
 
     const [validated, setValidated] = useState(false);
     const [bookName, setBookName] = useState<string>("");
     const [isbn, setIsbn] = useState<string>("");
     const [bookAuthor, setBookAuthor] = useState<AuthorsInDropDown | null>(null)
+    const [bookUpdateIndex, setBookUpdateIndex] = useState<number|null>(null)
 
     const [bookNameValied, setBookNameValied] = useState<string>("");
 
@@ -36,7 +38,6 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
       if(bookAuthor!== null){
         setBookNameValied("yes")
       }
-      console.log("hi")
     }
 
   const optionlist:AuthorsInDropDown[] = options.map((option:IAuthor) => {
@@ -44,6 +45,16 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
       { value: option.name, label: option.name }
     )
   });
+
+  useEffect(() => {
+    if (!props.updateBookValues) {
+        return;
+    }
+    setBookName(props.updateBookValues.name);
+    setIsbn("wyeufy");
+    setBookAuthor(null);
+    setBookUpdateIndex(props.updateBookIndex);
+}, [props.updateBookValues])
 
     const handleOnSubmit = (event:any) => {
         const form = event.currentTarget;
@@ -53,7 +64,6 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
         }
         if(bookAuthor ==null){
           setBookNameValied("yes");
-          console.log("hi2")
         }
         event.preventDefault();
         setValidated(true);
@@ -61,10 +71,16 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
         if(!bookName || !isbn || !bookAuthor){
             return;
         }
+        else if(bookUpdateIndex !== null){
+          const newBook: IBook = {name:bookName, isbn:12321, author:bookAuthor.value};
+          props.sendUpdateBook(newBook)
+          setBookName("");
+          setIsbn("");
+          setBookAuthor(null);
+      }
         else{
           const newBook: IBook = {name:bookName, isbn:12321, author:bookAuthor.value};
           props.addBook(newBook)
-          addToast("New Book added", { appearance: 'success', autoDismiss: true });
           setBookName("")
           setIsbn("")
           setBookAuthor(null)
@@ -129,7 +145,7 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
                   }}/>
             </Form.Group>
             <Button className="formButton" variant="primary" type="submit">
-              Create
+            {!bookUpdateIndex?"Create":"Update"}
             </Button>
           </Form>
       </Col>
