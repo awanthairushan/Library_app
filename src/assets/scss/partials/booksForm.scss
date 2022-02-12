@@ -2,6 +2,7 @@
     .formInput{
         border: 2px solid #959595;
         border-radius: 3px !important;
+        border-radius: 0 !important;
     }
     .formButton{
         float:right;
@@ -38,20 +39,25 @@
 }
 .form-control{
     border: 2px solid #959595;
+    border-radius: 0 !important;
 }
 .form-control.is-invalid, .was-validated .form-control:invalid {
     border: 2px solid red;
+    border-radius: 0 !important;
     border-radius: 3px;
 }
 .selectinvalid{
     border: 2px solid red;
+    border-radius: 0 !important;
     border-radius: 3px;
 }
 .selectinvalid1{
     border: 2px solid #198754;
+    border-radius: 0 !important;
     border-radius: 3px;
 }
 .css-1s2u09g-control{
     border-style: none !important;
+    border-radius: 0 !important;
     border-radius: 3px;
 }
