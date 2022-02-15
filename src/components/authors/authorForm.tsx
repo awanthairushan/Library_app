@@ -53,17 +53,17 @@ const AuthorForm: React.FC<AddAuthorProps> = (props) => {
         setValidated(false)
     }
     return (
-        <Row className="authorFormSection m-0">
-            <Col xs={11} sm={8} className="p-0">
-                <h1>Create Author</h1>
+        <Row className="author-form-section m-0">
+            <Col xs={12} sm={8} className="p-0">
+                <h1>{!authorUpdateIndex?"Create ":"Update "} Author</h1>
             </Col>
             <Col xs={1} className="text-end p-0">
                 <XCircle size={23} className="icon p-0" onClick={props.onCloseClick}/>
             </Col>
-            <Col xs={12} sm={9} className="p-0 authorForm">
+            <Col xs={12} sm={9} className="p-0 author-form">
                 <Form noValidate validated={validated} onSubmit={handleOnSubmit} className="ms-sm-4">
-                    <Form.Group className="mb-3 formAuthor" controlId="formAuthor">
-                        <Form.Label className="formLabel">Author</Form.Label>
+                    <Form.Group className="mb-3 form-author" controlId="formAuthor">
+                        <Form.Label className="form-label">Author</Form.Label>
                         <Form.Control
                             className="border-2 formInput"
                             type="text"
@@ -73,18 +73,12 @@ const AuthorForm: React.FC<AddAuthorProps> = (props) => {
                             onChange={(ev: React.ChangeEvent<HTMLInputElement>,) =>
                                 handleOnAuthorNameChanged(ev.target.value)}
                             />
-
                     </Form.Group>
                     <Button className="formButton" variant="primary" type="submit">
                         {!authorUpdateIndex?"Create":"Update"}
                     </Button>
-
                 </Form>
-
             </Col>
-
-
-
         </Row>
     );
 }
