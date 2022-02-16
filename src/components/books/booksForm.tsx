@@ -20,7 +20,7 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
 
   const [validated, setValidated] = useState(false);
   const [bookName, setBookName] = useState<string>("");
-  const [isbn, setIsbn] = useState<number | null>(null);
+  const [isbn, setIsbn] = useState<string>("");
   const [bookAuthor, setBookAuthor] = useState<AuthorsInDropDown | null>(null)
   const [bookUpdateIndex, setBookUpdateIndex] = useState<number | null>(null)
 
@@ -29,7 +29,7 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
   const handleOnBookNameChanged = (name: string) => {
     setBookName(name)
   }
-  const handleOnisbnChanged = (name: number) => {
+  const handleOnisbnChanged = (name: string) => {
     setIsbn(name)
   }
   const handleOnBookAuthorChanged = (name: AuthorsInDropDown | null) => {
@@ -75,14 +75,14 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
       const newBook: IBook = { name: bookName, isbn: isbn, author: bookAuthor.value };
       props.sendUpdateBook(newBook)
       setBookName("");
-      setIsbn(null);
+      setIsbn("");
       setBookAuthor(null);
     }
     else {
       const newBook: IBook = { name: bookName, isbn: isbn, author: bookAuthor.value };
       props.addBook(newBook)
       setBookName("")
-      setIsbn(null)
+      setIsbn("")
       setBookAuthor(null)
       console.log(bookName + isbn)
     }
@@ -128,7 +128,7 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label className="formLabel">ISBN</Form.Label>
+            <Form.Label className="formLabel">Price</Form.Label>
             <NumberFormat required className="form-control"
               placeholder=""
               prefix={'$ '}

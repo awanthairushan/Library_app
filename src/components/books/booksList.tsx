@@ -21,22 +21,26 @@ const BookList: React.FC<BookListProps> = (props) => {
         }
         else {
             return (
-                <ol className="list-unstyled mt-3">
+                <li className="list-unstyled mt-3">
                     {
                         books.map((book: IBook, index: number) =>
                             <Book num={index + 1} book={book} key={index}
                                 deleteBook={props.deleteBook}
                                 updateBook={props.updateBook} />)
                     }
-                </ol>
+                </li>
             );
         }
     }
 
     return (
-        <Col sm={12} className="bookList">
-            {renderBooks()}
-        </Col>
+        <Row className="bookList">
+            <Col>
+                <ul className="list-unstyled">
+                {renderBooks()}
+                </ul>
+            </Col>
+        </Row>
     )
 };
 export default BookList;

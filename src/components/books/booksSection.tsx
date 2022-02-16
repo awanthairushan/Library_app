@@ -13,11 +13,7 @@ const BooksSection: React.FC<BooksSectionProps> = (props) => {
 
     const { addToast } = useToasts()
 
-    const Books: IBook[] = [
-        { name: 'Book 1', isbn: 467465, author: 'Author 1' },
-        { name: 'Book 2', isbn: 467465, author: 'Author 1' },
-        { name: 'Book 3', isbn: 467465, author: 'Author 1' },
-    ]
+    const Books: IBook[] = []
 
     const [books, setBooks] = useState(Books);
     const [isFormVisible, setIsFormVisible] = useState(false);

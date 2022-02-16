@@ -16,6 +16,7 @@ const Author: React.FC<AuthorNameProps> = (props) => {
     const {authors, index} = props
 
   return (
+      <li>
     <Row className="author">
         <Col xs={9}>
             <label className="py-2">{index+1} . {authors.name}</label>               
@@ -25,6 +26,7 @@ const Author: React.FC<AuthorNameProps> = (props) => {
             <Edit className="text-warning edit me-3 icon align-bottom"  onClick={()=>props.updateAuthor(index)} />
         </Col>
     </Row>
+    </li>
 );
 } 
 
