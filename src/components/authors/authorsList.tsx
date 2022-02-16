@@ -1,24 +1,24 @@
 import React from 'react';
-import  'bootstrap/dist/css/bootstrap.min.css';
-import { Image,Row,Col ,Container} from 'react-bootstrap';
-import Author  from '../authors/author';
+import { Row, Col } from 'react-bootstrap';
+import Author from './Author';
 import { IAuthor } from '../../types/libraryTypes';
-import EmptyLabel from './emptyLabel';
+import EmptyLabel from './EmptyLabel';
 
 type AuthorsListProps = {
-    authors:IAuthor[]
-    deleteAuthor : (deleteIndex:number) => void
+    authors: IAuthor[]
+    deleteAuthor: (deleteIndex: number) => void
+    updateAuthor: (updateIndex: number) => void
 }
 const AuthorsList: React.FC<AuthorsListProps> = (props) => {
 
-    const {authors} = props
+    const { authors } = props
 
     const renderAuthors = () => {
         if (authors.length === 0) {
             return (
                 <Row>
                     <Col xs={9}>
-                        <EmptyLabel/>
+                        <EmptyLabel />
                     </Col>
                 </Row>
             );
@@ -26,9 +26,10 @@ const AuthorsList: React.FC<AuthorsListProps> = (props) => {
             return (
                 <li className="mt-2">
                     {
-                        authors.map((authors:IAuthor , index:number) =>
+                        authors.map((authors: IAuthor, index: number) =>
                             <Author authors={authors} index={index} key={index}
-                                    deleteAuthor={props.deleteAuthor}/>
+                                deleteAuthor={props.deleteAuthor}
+                                updateAuthor={props.updateAuthor} />
                         )
                     }
                 </li>
@@ -36,15 +37,15 @@ const AuthorsList: React.FC<AuthorsListProps> = (props) => {
         }
     }
 
-  return (
-    <Row className="authorList">
-        <Col>
-            <ul className="list-unstyled">
-                {renderAuthors()}
-            </ul>
-        </Col>
-    </Row>
-);
-} 
+    return (
+        <Row className="author-list">
+            <Col>
+                <ul className="list-unstyled">
+                    {renderAuthors()}
+                </ul>
+            </Col>
+        </Row>
+    );
+}
 
 export default AuthorsList;

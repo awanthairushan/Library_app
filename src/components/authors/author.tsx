@@ -8,6 +8,7 @@ type AuthorNameProps = {
     authors: IAuthor
     index: number
     deleteAuthor : (deleteIndex:number) => void
+    updateAuthor : (updateIndex:number) => void
 }
 
 
@@ -15,15 +16,17 @@ const Author: React.FC<AuthorNameProps> = (props) => {
     const {authors, index} = props
 
   return (
+      <li>
     <Row className="author">
         <Col xs={9}>
             <label className="py-2">{index+1} . {authors.name}</label>               
         </Col>
         <Col xs={3} className='hover_area d-flex flex-row-reverse align-items-center'>
             <Trash2 className="text-danger delete me-3 icon align-middle" onClick={()=>props.deleteAuthor(index)}/>
-            <Edit className="text-warning edit me-3 icon align-bottom" />
+            <Edit className="text-warning edit me-3 icon align-bottom"  onClick={()=>props.updateAuthor(index)} />
         </Col>
     </Row>
+    </li>
 );
 } 
 

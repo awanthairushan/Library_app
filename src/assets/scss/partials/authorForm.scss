@@ -1,4 +1,4 @@
-.authorForm {    
+.author-form {    
   .formButton{
     float:right;
     margin-bottom: 1rem;
@@ -6,7 +6,7 @@
     background:#01589d !important;
     padding: 0.2rem 1.8rem 0.2rem 1.8rem;
   }
-  .formLabel{
+  .form-label{
     font-size: 0.8rem;
     color: #585858;
   }
@@ -14,7 +14,7 @@
 
 }
 
-.authorFormSection{
+.author-form-section{
 
   h1{
 
@@ -34,20 +34,22 @@
   }
 }
 .form-control{
+  border-radius: 0 !important;
   border: 2px solid #959595;
 }
 .form-control.is-invalid, .was-validated .form-control:invalid {
+  border-radius: 0 !important;
   border: 2px solid red;
 }
 @media(max-width:768px){
-  .authorFormSection{
+  .author-form-section{
     h1{
       font-size: 1.3em;
     }
   }
 }
 @media(max-width:576px){
-  .authorFormSection{
+  .author-form-section{
     h1{
       font-size: 1.2em;
     }
