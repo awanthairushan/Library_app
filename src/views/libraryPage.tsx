@@ -10,11 +10,13 @@ const LibraryPage: React.FC = () => {
 
   const { addToast } = useToasts()
 
-  const Authors: IAuthor[] = [
-    { name: "Author 1 name" },
-    { name: "Author 2 name" },
-    { name: "Author 3 name" },
-  ]
+  const Authors: IAuthor[] = []
+  
+  // const Authors: IAuthor[] = [
+  //   { name: "Author 1 name" },
+  //   { name: "Author 2 name" },
+  //   { name: "Author 3 name" },
+  // ]
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [authors, setAuthors] = useState(Authors);
   const [updateAuthor, setUpdateAuthor] = useState<IAuthor | null>(null);
