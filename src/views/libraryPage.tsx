@@ -5,6 +5,7 @@ import AuthorsSection from '../components/authors/AuthorsSection'
 import BooksSection from '../components/books/BooksSection';
 import { IAuthor } from '../types/libraryTypes';
 import { useToasts } from 'react-toast-notifications';
+import Swal from 'sweetalert2';
 
 const LibraryPage: React.FC = () => {
 
@@ -39,14 +40,23 @@ const LibraryPage: React.FC = () => {
   }, [updateAuthor, updateAuthorIndex]);
 
   const handleOnDeleteAuthor = (deleteIndex: number) => {
-    const userConfirmation = window.confirm("Delete this Author?");
-    const index = authors.length
-    if (userConfirmation === true) {
-      const allAuthors: IAuthor[] = authors.slice();
-      allAuthors.splice(deleteIndex, 1);
-      setAuthors(allAuthors);
-      addToast("Author Deleted", { appearance: 'success', autoDismiss: true });
-    }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result:any) => {
+      const index = authors.length;
+      if (result.isConfirmed) {
+        const allAuthors: IAuthor[] = authors.slice();
+        allAuthors.splice(deleteIndex, 1);
+        setAuthors(allAuthors);
+        addToast("Author Deleted", { appearance: 'success', autoDismiss: true });
+      }
+    })
   }
 
   const handleOnUpdateAuthor = (updateIndex: number) => {
