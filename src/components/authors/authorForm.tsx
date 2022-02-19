@@ -1,23 +1,23 @@
-import React,{useState, useEffect} from "react";
-import {Row, Col , Form, Button} from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Row, Col, Form, Button } from "react-bootstrap";
 import { XCircle } from "react-feather";
 import { IAuthor } from "../../types/libraryTypes";
 
 type AddAuthorProps = {
-    onCloseClick : () => void
-    addAuthor : (author:IAuthor) => void
-    sendUpdateAuthor : (author:IAuthor) => void
-    updateAuthorValues:IAuthor|null
-    updateAuthorIndex:number|null
+    onCloseClick: () => void
+    addAuthor: (author: IAuthor) => void
+    sendUpdateAuthor: (author: IAuthor) => void
+    updateAuthorValues: IAuthor | null
+    updateAuthorIndex: number | null
 }
 
 const AuthorForm: React.FC<AddAuthorProps> = (props) => {
 
     const [validated, setValidated] = useState(false);
     const [authorName, setAuthorName] = useState<string>("");
-    const [authorUpdateIndex, setAuthorUpdateIndex] = useState<number|null>(null)
+    const [authorUpdateIndex, setAuthorUpdateIndex] = useState<number | null>(null)
 
-    const handleOnAuthorNameChanged = (name:string) => {
+    const handleOnAuthorNameChanged = (name: string) => {
         setAuthorName(name)
     }
 
@@ -29,7 +29,7 @@ const AuthorForm: React.FC<AddAuthorProps> = (props) => {
         setAuthorUpdateIndex(props.updateAuthorIndex);
     }, [props.updateAuthorValues])
 
-    const handleOnSubmit = (event:any) => {
+    const handleOnSubmit = (event: any) => {
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
@@ -37,16 +37,16 @@ const AuthorForm: React.FC<AddAuthorProps> = (props) => {
         }
         event.preventDefault();
         setValidated(true);
-        if(!authorName){
+        if (!authorName) {
             return;
         }
-        else if(authorUpdateIndex !== null){
-            const newAuthor: IAuthor = {name: authorName}
+        else if (authorUpdateIndex !== null) {
+            const newAuthor: IAuthor = { name: authorName }
             props.sendUpdateAuthor(newAuthor)
             setAuthorName("")
         }
-        else{
-            const newAuthor: IAuthor = {name: authorName};
+        else {
+            const newAuthor: IAuthor = { name: authorName };
             props.addAuthor(newAuthor)
             setAuthorName("")
         }
@@ -54,11 +54,11 @@ const AuthorForm: React.FC<AddAuthorProps> = (props) => {
     }
     return (
         <Row className="author-form-section m-0">
-            <Col xs={12} sm={8} className="p-0">
-                <h1>{!authorUpdateIndex?"Create ":"Update "} Author</h1>
+            <Col xs={11} sm={8} className="p-0">
+                <h1>{!authorUpdateIndex ? "Create " : "Update "} Author</h1>
             </Col>
             <Col xs={1} className="text-end p-0">
-                <XCircle size={23} className="icon p-0" onClick={props.onCloseClick}/>
+                <XCircle size={23} className="icon p-0" onClick={props.onCloseClick} />
             </Col>
             <Col xs={12} sm={9} className="p-0 author-form">
                 <Form noValidate validated={validated} onSubmit={handleOnSubmit} className="ms-sm-4">
@@ -72,10 +72,10 @@ const AuthorForm: React.FC<AddAuthorProps> = (props) => {
                             required
                             onChange={(ev: React.ChangeEvent<HTMLInputElement>,) =>
                                 handleOnAuthorNameChanged(ev.target.value)}
-                            />
+                        />
                     </Form.Group>
                     <Button className="formButton" variant="primary" type="submit">
-                        {!authorUpdateIndex?"Create":"Update"}
+                        {!authorUpdateIndex ? "Create" : "Update"}
                     </Button>
                 </Form>
             </Col>

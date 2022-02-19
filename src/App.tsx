@@ -1,5 +1,5 @@
 import React from 'react';
-import LibraryPage from './views/libraryPage';
+import LibraryPage from './views/LibraryPage';
 import "./assets/scss/_layout.scss";
 import { ToastProvider } from 'react-toast-notifications';
 

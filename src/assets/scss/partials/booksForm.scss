@@ -1,63 +1,75 @@
-.booksForm{
-    .formInput{
-        border: 2px solid #959595;
-        border-radius: 3px !important;
-        border-radius: 0 !important;
-    }
-    .formButton{
-        float:right;
-        margin-bottom: 1rem;
-        border-radius:0.5rem;
-        background:#01589d !important;
-        padding: 0.2rem 1.8rem 0.2rem 1.8rem;
-    }
-    .formLabel{
-        font-size: 0.8rem;
-        color: #585858;
-    }
-    
-}
-
-.booksFormSection{
-    
-    h1{
-
-        font-size: 1.5em;
-        font-weight: 500;
-        border-bottom:2px solid;
-        width: max-content;
-        color:#1c3b38;
-        cursor: default;
-    }
-
-    margin-left: 1rem;
-
-    .icon{
-        float: right;
-        cursor: pointer;
-      }
-}
-.form-control{
+.booksForm {
+  .formInput {
     border: 2px solid #959595;
+    border-radius: 3px !important;
     border-radius: 0 !important;
+  }
+  .formButton {
+    float: right;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    background: #01589d !important;
+    padding: 0.2rem 1.8rem 0.2rem 1.8rem;
+  }
+  .formLabel {
+    font-size: 0.8rem;
+    color: #585858;
+  }
 }
-.form-control.is-invalid, .was-validated .form-control:invalid {
-    border: 2px solid red;
-    border-radius: 0 !important;
-    border-radius: 3px;
+
+.booksFormSection {
+  h1 {
+    font-size: 1.5em;
+    font-weight: 500;
+    border-bottom: 2px solid;
+    width: max-content;
+    color: #1c3b38;
+    cursor: default;
+  }
+
+  margin-left: 1rem;
+
+  .icon {
+    float: right;
+    cursor: pointer;
+  }
 }
-.selectinvalid{
-    border: 2px solid red;
-    border-radius: 0 !important;
-    border-radius: 3px;
+@media (max-width: 768px) {
+  .booksFormSection {
+    h1 {
+      font-size: 1.3em;
+    }
+  }
 }
-.selectinvalid1{
-    border: 2px solid #198754;
-    border-radius: 0 !important;
-    border-radius: 3px;
+@media (max-width: 576px) {
+  .booksFormSection {
+    h1 {
+      font-size: 1.2em;
+    }
+  }
 }
-.css-1s2u09g-control{
-    border-style: none !important;
-    border-radius: 0 !important;
-    border-radius: 3px;
+.form-control {
+  border: 2px solid #959595;
+  border-radius: 0 !important;
+}
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  border: 2px solid red;
+  border-radius: 0 !important;
+  border-radius: 3px;
+}
+.selectinvalid {
+  border: 2px solid red;
+  border-radius: 0 !important;
+  border-radius: 3px;
+}
+.selectinvalid1 {
+  border: 2px solid #198754;
+  border-radius: 0 !important;
+  border-radius: 3px;
+}
+.css-1s2u09g-control {
+  border-style: none !important;
+  border-radius: 0 !important;
+  border-radius: 3px;
 }

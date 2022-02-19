@@ -49,7 +49,6 @@ const LibraryPage: React.FC = () => {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!'
     }).then((result:any) => {
-      const index = authors.length;
       if (result.isConfirmed) {
         const allAuthors: IAuthor[] = authors.slice();
         allAuthors.splice(deleteIndex, 1);

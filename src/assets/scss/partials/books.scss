@@ -1,86 +1,103 @@
-.booksSection{
-    margin: 0 1rem 2rem 1rem;
-    h1{
-        font-size: 2.2em;
-        font-weight: 500;
-        border-bottom:2px solid;
-        margin-bottom: 1rem;
-    }
+.booksSection {
+  margin: 0 1rem 2rem 1rem;
+  h1 {
+    font-size: 2.2em;
+    font-weight: 500;
+    border-bottom: 2px solid;
+    margin-bottom: 1rem;
+  }
 
-    .empty-label{
-        font-style: italic;
-        font-weight: 483;
+  .empty-label {
+    font-style: italic;
+    font-weight: 483;
+  }
+  .book {
+    margin: 0;
+    div {
+      padding: 0;
     }
-    .bookList {
+    label {
+      font-size: 1.5rem;
     }
-    .book{
-        margin: 0;
-        div {
-            padding: 0;
-        }
-        label{
-            font-size: 1.5rem;
-        }
-        .edit{
-            font-size: 1.6em;
-            cursor: pointer;
-            vertical-align: bottom;
-            display: none;
-        }
-        .delete{
-            font-size: 1.6em;
-            cursor: pointer;
-            vertical-align: bottom;
-            display: none;
-        }
-        &:hover {
-            background-color: #f5f5f5;
-            .edit{
-                display: inline-block;
-            }
-            .delete{
-                display: inline-block;
-            }
-        }
+    .edit {
+      font-size: 1.6em;
+      cursor: pointer;
+      vertical-align: bottom;
+      display: none;
     }
+    .delete {
+      font-size: 1.6em;
+      cursor: pointer;
+      vertical-align: bottom;
+      display: none;
+    }
+    &:hover {
+      background-color: #f5f5f5;
+      .edit {
+        display: inline-block;
+      }
+      .delete {
+        display: inline-block;
+      }
+    }
+  }
 }
 .plus_icon {
-    color: #01589d;
-    height: 24px;
-    stroke-width: 2.5;
-    cursor: pointer;
+  color: #01589d;
+  height: 24px;
+  stroke-width: 2.5;
+  cursor: pointer;
 }
 .add_book {
-    font-size: 1.1rem;
-    margin-left: 0.3rem;
-    cursor: pointer;
+  font-size: 1.1rem;
+  margin-left: 0.3rem;
+  cursor: pointer;
 }
-@media(max-width:768px){
-    .booksSection{
-        h1{
-            font-size: 1.8em;
-        }
-        .book{
-            label{
-                font-size: 1.3rem;
-            }}
+@media (max-width: 1200px) {
+  .booksSection {
+    .book {
+      .edit {
+        display: inline-block;
+      }
+      .delete {
+        display: inline-block;
+      }
     }
-   
-    .add_book {
-        font-size: 1rem;
-    }
+  }
+
+  .add_book {
+    font-size: 1rem;
+  }
 }
-@media(max-width:576px){
-    .booksSection{
-        h1{
-            font-size: 1.5em;
-        }
-        .book{
-            label{
-                font-size: 1.2rem;
-            }}
+@media (max-width: 768px) {
+  .booksSection {
+    margin: 0 0 1rem 0;
+    h1 {
+      font-size: 1.8em;
     }
-    .add_book {
-        font-size: 0.9rem;
+    .book {
+      label {
+        font-size: 1.3rem;
+      }
     }
+  }
+
+  .add_book {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 576px) {
+  .booksSection {
+    h1 {
+      font-size: 1.5em;
+    }
+    .book {
+      label {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .add_book {
+    font-size: 0.9rem;
+  }
 }

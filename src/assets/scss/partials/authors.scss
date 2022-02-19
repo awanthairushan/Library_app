@@ -1,81 +1,93 @@
-*{
-    font-family: raleway;
-    font-weight: 500;
+* {
+  font-family: raleway;
+  font-weight: 500;
 }
-.authorsSection{
-    margin: 0 1rem 2rem 1rem;
-    h1{
-        font-size: 2.2em;
-        border-bottom:2px solid;
-        margin-bottom: 1rem;
-    }
+.authorsSection {
+  margin: 0 1rem 2rem 1rem;
+  h1 {
+    font-size: 2.2em;
+    border-bottom: 2px solid;
+    margin-bottom: 1rem;
+  }
 }
-.empty-label{
-    font-style: italic;
-    font-weight: 483;
+.empty-label {
+  font-style: italic;
+  font-weight: 483;
 }
-.author{
-    font-size: 1.5rem;
-    margin: 0;
-    width: 100%;
-    div {
-        padding: 0;
-    }
+.author {
+  font-size: 1.5rem;
+  margin: 0;
+  width: 100%;
+  div {
+    padding: 0;
+  }
+  .hover_area {
+    display: none !important;
+  }
+  &:hover {
+    background-color: #f5f5f5;
     .hover_area {
-        display: none !important;
+      display: flex !important;
+      .icon {
+        cursor: pointer;
+      }
     }
-    &:hover {
-        background-color: #f5f5f5;
-        .hover_area {
-            display: flex !important;
-            .icon {
-                cursor: pointer;
-            }
-        }
-    }
+  }
 }
 .plus_icon {
-    color: #01589d;
-    height: 24px;
-    stroke-width: 2.5;
-    cursor: pointer;
+  color: #01589d;
+  height: 24px;
+  stroke-width: 2.5;
+  cursor: pointer;
 }
 .add_author {
-    font-size: 1.1rem;
-    margin-left: 0.3rem;
-    cursor: pointer;
+  font-size: 1.1rem;
+  margin-left: 0.3rem;
+  cursor: pointer;
 }
 
-.confirm-box{
-    border: 2px solid rgb(5, 5, 83);
-    button{
-        width: 70px;
-        border-radius: 2px;
-    }
+.confirm-box {
+  border: 2px solid rgb(5, 5, 83);
+  button {
+    width: 70px;
+    border-radius: 2px;
+  }
 }
-@media(max-width:768px){
-    .authorsSection{
-        h1{
-            font-size: 1.8em;
-        }
+@media (max-width: 1200px) {
+  .author {
+    .hover_area {
+      display: flex !important;
+      .icon {
+        cursor: pointer;
+      }
     }
-    .author{
-        font-size: 1.3rem;
-    }
-    .add_author {
-        font-size: 1rem;
-    }
+  }
 }
-@media(max-width:576px){
-    .authorsSection{
-        h1{
-            font-size: 1.5em;
-        }
+@media (max-width: 768px) {
+  .authorsSection {
+    margin: 0 0 1rem 0;
+    h1 {
+      font-size: 1.8em;
     }
-    .author{
-        font-size: 1.2rem;
+  }
+  .author {
+    font-size: 1.3rem;
+  }
+  .add_author {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 576px) {
+  //margin: 0 1rem 2rem 1rem;
+  .authorsSection {
+    h1 {
+      font-size: 1.5em;
     }
-    .add_author {
-        font-size: 0.9rem;
-    }
+  }
+  .author {
+    font-size: 1.2rem;
+  }
+  .add_author {
+    font-size: 0.9rem;
+  }
 }
