@@ -5,6 +5,7 @@ import BooksForm from './BooksForm';
 import AddBook from './AddBook';
 import { IBook, IAuthor } from "../../types/libraryTypes";
 import { useToasts } from 'react-toast-notifications';
+import Swal from 'sweetalert2';
 
 type BooksSectionProps = {
     authors: IAuthor[]
@@ -37,14 +38,23 @@ const BooksSection: React.FC<BooksSectionProps> = (props) => {
     }
 
     const handleOnDeleteBook = (deleteIndex: number) => {
-        const userConfirmation = window.confirm("Delete this Book?");
-        const index = books.length
-        if (userConfirmation === true) {
-            const allBooks: IBook[] = books.slice();
-            allBooks.splice(deleteIndex, 1);
-            setBooks(allBooks);
-            addToast("Book Deleted", { appearance: 'success', autoDismiss: true });
-        }
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result:any) => {
+            const index = books.length;
+            if (result.isConfirmed) {
+                const allBooks: IBook[] = books.slice();
+                allBooks.splice(deleteIndex, 1);
+                setBooks(allBooks);
+                addToast("Book Deleted", { appearance: 'success', autoDismiss: true });
+            }
+          })
     }
 
     const handleOnUpdateBook = (updateIndex: number) => {
