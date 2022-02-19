@@ -20,7 +20,7 @@ const Book: React.FC<BookProps> = (props: PropsWithChildren<BookProps>) => {
                 <Col xs={9}>
                     <label className="py-2">{num}. {book.name}</label>
                 </Col>
-                <Col xs={3} className="text-end my-1 d-flex justify-content-end align-items-center">
+                <Col xs={3} className="text-end my-1 d-flex justify-content-end align-items-center px-0">
                     <Edit className="text-warning edit me-3" onClick={() => props.updateBook(num - 1)} />
                     <Trash2 className="text-danger delete me-3" onClick={() => props.deleteBook(num - 1)} />
                 </Col>

@@ -21,7 +21,7 @@ const BookList: React.FC<BookListProps> = (props) => {
         }
         else {
             return (
-                <li className="list-unstyled mt-3">
+                <li className="list-unstyled mt-2">
                     {
                         books.map((book: IBook, index: number) =>
                             <Book num={index + 1} book={book} key={index}
@@ -37,7 +37,7 @@ const BookList: React.FC<BookListProps> = (props) => {
         <Row className="bookList">
             <Col>
                 <ul className="list-unstyled">
-                {renderBooks()}
+                    {renderBooks()}
                 </ul>
             </Col>
         </Row>
