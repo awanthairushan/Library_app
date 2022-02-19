@@ -21,7 +21,7 @@ const Author: React.FC<AuthorNameProps> = (props) => {
         <Col xs={9}>
             <label className="py-2">{index+1} . {authors.name}</label>               
         </Col>
-        <Col xs={3} className='hover_area d-flex flex-row-reverse align-items-center'>
+        <Col xs={3} className='hover_area d-flex flex-row-reverse align-items-center px-0'>
             <Trash2 className="text-danger delete me-3 icon align-middle" onClick={()=>props.deleteAuthor(index)}/>
             <Edit className="text-warning edit me-3 icon align-bottom"  onClick={()=>props.updateAuthor(index)} />
         </Col>
