@@ -125,6 +125,9 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
               onChange={(ev: React.ChangeEvent<HTMLInputElement>,) =>
                 handleOnBookNameChanged(ev.target.value)}
             />
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid book name.
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -137,6 +140,9 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
               onValueChange={(values: any) => {
                 handleOnisbnChanged(values.value)
               }} />
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid price.
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -149,6 +155,9 @@ const BooksForm: React.FC<BookFormProps> = (props) => {
               onChange={(selected: AuthorsInDropDown | null) => {
                 handleOnBookAuthorChanged(selected)
               }} />
+            <Form.Control.Feedback>
+              Please chiose a valid auther name.
+            </Form.Control.Feedback>
           </Form.Group>
           <Button className="formButton" variant="primary" type="submit">
             {!bookUpdateIndex ? "Create" : "Update"}

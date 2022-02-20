@@ -73,6 +73,9 @@ const AuthorForm: React.FC<AddAuthorProps> = (props) => {
                             onChange={(ev: React.ChangeEvent<HTMLInputElement>,) =>
                                 handleOnAuthorNameChanged(ev.target.value)}
                         />
+                        <Form.Control.Feedback type="invalid">
+                            Please provide a valid auther name.
+                        </Form.Control.Feedback>
                     </Form.Group>
                     <Button className="formButton" variant="primary" type="submit">
                         {!authorUpdateIndex ? "Create" : "Update"}
